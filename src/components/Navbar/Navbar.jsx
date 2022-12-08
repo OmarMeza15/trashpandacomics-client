@@ -68,7 +68,7 @@ function Navbar() {
           <Link to="/signup">
             {" "}
             <button
-              className="inline-block rounded-lg bg-white px-4 py-1.5 text-base font-semibold leading-7 text-black shadow-sm ring-1  ring-gray-400 hover:bg-black hover:ring-white hover:text-white"
+              className="inline-block rounded-lg bg-white px-4 py-1.5 text-sm font-semibold leading-7 text-black shadow-sm ring-1  ring-gray-400 hover:bg-black hover:ring-white hover:text-white"
               >
               Sign Up
             </button>{" "}
@@ -77,7 +77,7 @@ function Navbar() {
           <Link to="/login">
             {" "}
             <button
-              className="inline-block rounded-lg bg-black px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1     ring-white hover:bg-white hover:ring-gray-400 hover:text-black"
+              className="inline-block rounded-lg bg-black px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-1     ring-white hover:bg-white hover:ring-gray-400 hover:text-black"
               >
               Login
             </button>{" "}

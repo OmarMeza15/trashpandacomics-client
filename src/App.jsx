@@ -6,14 +6,14 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 
-import Navbar from "./components/Navbar/Navbar";
+import NavbarComplement from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavbarComplement />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
