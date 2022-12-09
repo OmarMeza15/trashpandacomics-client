@@ -70,7 +70,9 @@ function LoginPage() {
         </div>
 
         {/* Submit button */}
-        <button type="submit" className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-5 hover:opacity-50">Sign Up</button>
+        <button type="submit" className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-5 hover:opacity-50">
+          Login
+        </button>
       </form>
       
       {errorMessage && <p className="error-message">{errorMessage}</p>}
