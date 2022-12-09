@@ -1,6 +1,10 @@
 import "./HomePage.css";
+import { useContext } from 'react'
+import { AuthContext } from "../../context/auth.context";
 
 function HomePage() {
+  const { isLoggedIn } = useContext(AuthContext)
+
   return (
     <div className="bg-black h-screen">
 
@@ -24,16 +28,25 @@ function HomePage() {
 
             <p className="w-1/2">Trashpandacomics is a small business, specializing in custom-made comic strips, posters and books. Since starting out in 2016, we've been working on hundreds of projects with clients from all over the world, and we're proud to say that the satisfaction of our customers remained our top priority over the years!</p>
 
-            <button className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-20 hover:opacity-50 animate-pulse">Get Started</button>
+            {!isLoggedIn && (
+              <button className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-20 hover:opacity-50 animate-pulse">Get Started</button>
+            )}
           </div>
         </div>
       </div>
+      
+      {isLoggedIn && (
+        <div>
 
-      {/* Info */}
+          {/* Info */}
+          <div>
+            
+          </div>
 
-      <div>
-        
-      </div>
+        </div>
+      )}
+
+      <script src="../path/to/flowbite/dist/flowbite.js"></script>
 
     </div>
   );
