@@ -10,6 +10,8 @@ import NavbarComplement from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import FAQ from "./pages/FAQ";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -53,6 +55,12 @@ function App() {
 
         {/* FAQ page */}
         <Route path="/faq" element={<FAQ />} />
+
+        {/* Contact page */}
+        <Route path="/contact" element={<Contact />} />
+
+        {/* About page */}
+        <Route path="/about" element={<About />} />
 
         
       </Routes>
