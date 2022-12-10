@@ -70,7 +70,7 @@ function LoginPage() {
         </div>
 
         {/* Submit button */}
-        <button type="submit" className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-5 hover:opacity-50">
+        <button type="submit" className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-5 hover:opacity-50 transition ease-in-out duration-500">
           Login
         </button>
       </form>
