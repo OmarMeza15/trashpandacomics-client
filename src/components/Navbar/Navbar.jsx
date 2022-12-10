@@ -56,19 +56,19 @@ function Navbar() {
           <Dropdown label={user && user.name} dismissOnClick={false} color="light" pill={true}>
 
             {/* Profile */}
-            <Dropdown.Item>
-              <Link to="/profile">
+            <Link to="/profile">
+              <Dropdown.Item>
                 <p>Profile</p>
-              </Link>
 
-              <svg className="w-6 h-6 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd"></path></svg>
-            </Dropdown.Item>
+                <svg className="w-6 h-6 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd"></path></svg>
+              </Dropdown.Item>
+            </Link>
 
             <Dropdown.Divider />
 
             {/* Logout */}
-            <Dropdown.Item>
-              <button onClick={logOutUser}>Logout</button>
+            <Dropdown.Item onClick={logOutUser}>
+              <p>Logout</p>
 
               <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd"></path></svg>
             </Dropdown.Item>
