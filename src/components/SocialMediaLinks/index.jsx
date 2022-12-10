@@ -2,7 +2,7 @@ const SocialMediaLinks = () => {
 
   
   return (
-    <div className="h-24 bg-black">
+    <div className="h-36 bg-black flex items-center justify-center">
       
       {/* Facebook link and icon */}
       <div className="flex justify-center gap-5">  
