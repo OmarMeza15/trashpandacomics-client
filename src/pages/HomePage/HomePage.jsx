@@ -1,6 +1,8 @@
 import "./HomePage.css";
 import { useContext } from 'react'
 import { AuthContext } from "../../context/auth.context";
+import SocialMediaLinks from "../../components/SocialMediaLinks";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext)
@@ -29,7 +31,9 @@ function HomePage() {
             <p className="w-1/2 leading-loose">Trashpandacomics is a small business, specializing in custom-made comic strips, posters and books. Since starting out in 2016, we've been working on hundreds of projects with clients from all over the world, and we're proud to say that the satisfaction of our customers remained our top priority over the years!</p>
 
             {!isLoggedIn && (
-              <button className="bg-white text-black w-36 h-11 rounded-3xl font-light mt-20 hover:opacity-50 animate-pulse">Get Started</button>
+              <Link to="/signup">
+                <button className="bg-white border border-white text-black w-36 h-11 rounded-3xl font-light hover:opacity-50 mt-20 place-self-center transition ease-in-out duration-500">Get Started</button>
+              </Link>
             )}
           </div>
         </div>
@@ -72,10 +76,10 @@ function HomePage() {
 
           {/*  */}
 
+          <SocialMediaLinks />
+
         </div>
       )}
-
-      <script src="../path/to/flowbite/dist/flowbite.js"></script>
 
     </div>
   );
