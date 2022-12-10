@@ -29,22 +29,22 @@ function Navbar() {
         <Link to="/">
           <button>Home</button>
         </Link>
-        <Link to="/">
+        <Link to="/shop">
           <button>Shop</button>
         </Link>
-        <Link to="/">
+        <Link to="/faq">
           <button>FAQ</button>
         </Link>
-        <Link to="/">
+        <Link to="/contact">
           <button>Contact</button>
         </Link>
-        <Link to="/">
+        <Link to="/availability">
           <button>Availability</button>
         </Link>
-        <Link to="/">
+        <Link to="/about">
           <button>About</button>
         </Link>
-        <Link to="/">
+        <Link to="/reviews">
           <button>Reviews</button>
         </Link>
       </div>
@@ -52,8 +52,8 @@ function Navbar() {
       {isLoggedIn && (
         <div className="user">
 
-          {/* Button for Profile and Logout */}
-          <Dropdown label={user && user.name} dismissOnClick={false} color="black" pill={true}>
+          {/* Dropdown button for Profile and Logout */}
+          <Dropdown label={user && user.name} dismissOnClick={false} color="light" pill={true}>
 
             {/* Profile */}
             <Dropdown.Item>
@@ -80,20 +80,21 @@ function Navbar() {
       {!isLoggedIn && (
         <div className="logSignButtons grid grid-cols-2 gap-x-2">
 
-          {/* Signup and Login buttons */}
+          {/* Signup button */}
           <Link to="/signup">
             {" "}
             <button
-              className="inline-block rounded-lg bg-white px-4 py-1.5 text-sm font-semibold leading-7 text-black shadow-sm ring-1  ring-gray-400 hover:bg-black hover:ring-white hover:text-white"
+              className="bg-white border border-white text-black w-24 h-11 rounded-3xl font-light hover:bg-black hover:text-white transition ease-in-out duration-500"
               >
               Sign Up
             </button>{" "}
           </Link>
 
+          {/* Login Button */}
           <Link to="/login">
             {" "}
             <button
-              className="inline-block rounded-lg bg-black px-4 py-1.5 text-sm font-semibold leading-7 text-white shadow-sm ring-1     ring-white hover:bg-white hover:ring-gray-400 hover:text-black"
+              className="bg-black border border-white text-white w-24 h-11 rounded-3xl font-light hover:bg-white hover:text-black transition ease-in-out duration-500"
               >
               Login
             </button>{" "}
