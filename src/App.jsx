@@ -12,6 +12,7 @@ import IsAnon from "./components/IsAnon/IsAnon";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Reviews from "./pages/Reviews";
 
 function App() {
   return (
@@ -62,6 +63,8 @@ function App() {
         {/* About page */}
         <Route path="/about" element={<About />} />
 
+        {/* Reviews page */}
+        <Route path="/reviews" element={<Reviews />} />
         
       </Routes>
     </div>
