@@ -8,15 +8,15 @@ function HomePage() {
   const { isLoggedIn } = useContext(AuthContext)
 
   return (
-    <div className="bg-black h-screen">
+    <div className="bg-black">
 
       {/* Header */}
-      <div>
-        <div className="relative">
+      <div className="relative">
+        <div>
           <img 
             src="https://static.wixstatic.com/media/160c7a_9f01d6ef40374d8cad6104ead964e70e~mv2.jpg/v1/fill/w_1351,h_862,fp_0.59_0.31,q_85,usm_0.66_1.00_0.01,enc_auto/160c7a_9f01d6ef40374d8cad6104ead964e70e~mv2.jpg"
             alt=""
-            className="object-cover"
+            className="w-screen"
           />
 
           <div className="absolute bottom-0 left-0 inset-0 bg-gray-900 opacity-60"></div>
