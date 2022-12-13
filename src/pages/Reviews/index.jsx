@@ -33,11 +33,15 @@ const Reviews = () => {
         {/* Reviews */}
         <div className='border rounded-xl border-white text-left w-2/3'>
 
-          {reviews.map(({ _id, createdAt, text }) => (
+          {reviews.map(({ _id, createdAt, text, imageUrl }) => (
             <div className='p-10' key={ _id }>  
               <h2 className='text-xl'>Casey Lorimer</h2>
               <h3 className='font-light mb-5'>{ createdAt }</h3>
-              <p>{ text }</p>  
+              <p>{ text }</p>
+              <img 
+                src={ imageUrl }
+                alt=""
+              />  
               <hr className='mt-5'/>
             </div>
           ))}
