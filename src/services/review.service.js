@@ -29,20 +29,11 @@ class ReviewService {
     return this.api.get('/review/reviews');
   }
 
-  // GET /api/examples/:id
-  getOne = async (id) => {
-    return this.api.get(`/api/examples/${id}`);
-  }
-
-  // PUT /api/examples/:id
-  updateOne = async (id, requestBody) => {
-    return this.api.put(`/api/examples/${id}`, requestBody);
-  }
-
-  // DELETE /api/examples/:id
-  deleteProject = async (id) => {
-    return this.api.delete(`/api/examples/${id}`);
-  } 
+  uploadImage = (file) => {
+    return this.api.post('/review/reviews/upload', file)
+      .then(res => res.data)
+      .catch(console.log);
+  };
 
 
 }
