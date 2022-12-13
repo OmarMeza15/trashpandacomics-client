@@ -19,22 +19,20 @@ class ReviewService {
     });
   }
 
-  // POST /api/examples
+  // POST /reviews/review
   createReview = async (requestBody) => {
     return this.api.post('/review/reviews', requestBody);
   }
 
-  // GET /api/examples
+  // GET /reviews/review
   getAllReviews = async () => {
     return this.api.get('/review/reviews');
   }
 
-  uploadImage = (file) => {
+  // GET /reviews/review/upload
+  uploadImage = async (file) => {
     return this.api.post('/review/reviews/upload', file)
-      .then(res => res.data)
-      .catch(console.log);
   };
-
 
 }
 
