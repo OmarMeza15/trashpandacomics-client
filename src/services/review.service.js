@@ -30,8 +30,10 @@ class ReviewService {
   }
 
   // GET /reviews/review/upload
-  uploadImage = async (file) => {
+  uploadImage = (file) => {
     return this.api.post('/review/reviews/upload', file)
+      .then(res => res.data)
+      .catch(console.log);
   };
 
 }
