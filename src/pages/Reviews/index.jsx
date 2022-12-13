@@ -5,7 +5,7 @@ import reviewService from '../../services/review.service'
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([])
-
+  
   useEffect(() => {
     reviewService
       .getAllReviews()
@@ -34,14 +34,19 @@ const Reviews = () => {
         <div className='border rounded-xl border-white text-left w-2/3'>
 
           {reviews.map(({ _id, createdAt, text, imageUrl }) => (
-            <div className='p-10' key={ _id }>  
-              <h2 className='text-xl'>Casey Lorimer</h2>
-              <h3 className='font-light mb-5'>{ createdAt }</h3>
-              <p>{ text }</p>
-              <img 
-                src={ imageUrl }
-                alt=""
-              />  
+            <div className='p-10 flex justify-center items-center gap-16' key={ _id }>
+              <div>
+                <h2 className='text-xl'>Casey Lorimer</h2>
+                <h3 className='font-light mb-5'>{ createdAt }</h3>
+                <p>{ text }</p>
+              </div>
+
+              <div>
+                <img 
+                  src={ imageUrl }
+                  alt=""
+                />  
+              </div>  
               <hr className='mt-5'/>
             </div>
           ))}
