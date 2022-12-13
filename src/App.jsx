@@ -13,6 +13,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Reviews from "./pages/Reviews";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
@@ -20,9 +21,6 @@ function App() {
       <NavbarComplement />
 
       <Routes>
-
-        {/* Home page */}
-        <Route path="/" element={<HomePage />} />
 
         {/* Profile page */}
         <Route
@@ -53,6 +51,12 @@ function App() {
             </IsAnon>
           }
         />
+
+        {/* Home page */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Shop page */}
+        <Route path='/shop' element={<ShopPage />} />
 
         {/* FAQ page */}
         <Route path="/faq" element={<FAQ />} />
