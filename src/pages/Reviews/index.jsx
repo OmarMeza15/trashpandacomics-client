@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CommentModal from '../../components/CommentModal'
 import SocialMediaLinks from '../../components/SocialMediaLinks'
+import reviewService from '../../services/review.service'
 
 const Reviews = () => {
+  const [reviews, setReviews] = useState([])
+
+  useEffect(() => {
+    reviewService
+      .getAllReviews()
+      .then((response) => {
+        setReviews(response.data)
+      })
+      .catch(console.log)
+  }, [])
+ 
+
   return (
     <div className='bg-black text-white'>
       <div className='flex flex-col justify-center items-center gap-20'>
@@ -19,47 +32,16 @@ const Reviews = () => {
 
         {/* Reviews */}
         <div className='border rounded-xl border-white text-left w-2/3'>
-          <div className='p-10'>  
-            <h2 className='text-xl'>Casey Lorimer</h2>
-            <h3 className='font-light mb-5'>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr className='mt-5'/>
-          </div>
 
-          <div className='p-10'>  
-            <h2>Casey Lorimer</h2>
-            <h3>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr />
-          </div>
+          {reviews.map(({ _id, createdAt, text }) => (
+            <div className='p-10' key={ _id }>  
+              <h2 className='text-xl'>Casey Lorimer</h2>
+              <h3 className='font-light mb-5'>{ createdAt }</h3>
+              <p>{ text }</p>  
+              <hr className='mt-5'/>
+            </div>
+          ))}
 
-          <div className='p-10'>  
-            <h2>Casey Lorimer</h2>
-            <h3>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr />
-          </div>
-
-          <div className='p-10'>  
-            <h2>Casey Lorimer</h2>
-            <h3>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr />
-          </div>
-
-          <div className='p-10'>  
-            <h2>Casey Lorimer</h2>
-            <h3>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr />
-          </div>
-
-          <div className='p-10'>  
-            <h2>Casey Lorimer</h2>
-            <h3>6 months ago</h3>
-            <p>Rèka was absolutely fantastic. Her art and her professionalism were wonderful! She was so quick to respond to any and all messages I sent her, and was incredibly accommodating. She captured my dad's essence perfectly for the comic book cover of him I requested. (He loves sci-fi and Disney, he programs, and he is a New Zealander - AKA a kiwi!) I highly recommend her to anyone looking for a custom comic. Thank you so much, Rèka! :)</p>  
-            <hr />
-          </div>
         </div>
 
       </div>  
