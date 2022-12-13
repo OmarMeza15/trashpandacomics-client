@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import reviewService from '../../services/review.service'
 
@@ -7,14 +7,24 @@ const CommentModal = () => {
   const [showModal, setShowModal] = useState(false)
   const [text, setText] = useState("")
   const [imageUrl, setImageUrl] = useState("")
-  const { isLoggedIn } = useContext(AuthContext)
+  const { isLoggedIn, user } = useContext(AuthContext)
+
+  const navigate = useNavigate()
 
 
   const handleReviewSubmit = (e) => {
-    const requestBody = { text, imageUrl }
+    const requestBody = { text, imageUrl, user }
+
+    e.preventDefault()
 
     reviewService
       .createReview(requestBody)
+      .then(() => {
+        setText("")
+        setImageUrl("")
+
+        navigate("/reviews")
+      })
       .catch(console.log)
   }
 
@@ -80,7 +90,13 @@ const CommentModal = () => {
                           <svg className="w-6 h-6 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path></svg>
                         </div>
                       
-                        <input type="text" name="text" value={text} onChange={(e) => setText(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                        <input 
+                          type="text" 
+                          name="text" 
+                          value={text} 
+                          onChange={(e) => setText(e.target.value)} 
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        />
                       </div>
 
                       <input 
@@ -97,6 +113,7 @@ const CommentModal = () => {
                           Comment
                         </button>
                       </div>
+
                     </form>
                   </div>
 
