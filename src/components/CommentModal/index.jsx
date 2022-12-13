@@ -6,16 +6,26 @@ import reviewService from '../../services/review.service'
 const CommentModal = () => {
   const [showModal, setShowModal] = useState(false)
   const [text, setText] = useState("")
+  const [imageUrl, setImageUrl] = useState("")
   const { isLoggedIn } = useContext(AuthContext)
 
 
   const handleReviewSubmit = (e) => {
-
-    const requestBody = { text }
+    const requestBody = { text, imageUrl }
 
     reviewService
       .createReview(requestBody)
-      
+      .catch(console.log)
+  }
+
+  const handleImageUpload = (e) => {
+    const uploadData = new FormData()
+
+    uploadData.append("imageUrl", e.target.files[0])
+
+    reviewService
+      .uploadImage(uploadData)
+      .then((response) => setImageUrl(response.fileUrl))
       .catch(console.log)
   }
     
@@ -72,6 +82,11 @@ const CommentModal = () => {
                       
                         <input type="text" name="text" value={text} onChange={(e) => setText(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                       </div>
+
+                      <input 
+                        type="file"
+                        onChange={(e) => handleImageUpload(e)}
+                      />
 
                       {/* Button */}
                       <div className="pb-10">
