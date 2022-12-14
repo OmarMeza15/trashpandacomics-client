@@ -32,7 +32,7 @@ const Reviews = () => {
         {/* Reviews */}
         <div className='border rounded-xl border-white text-left w-4/5'>
           {reviews.map(({ _id, createdAt, text, imageUrl, author }) => (
-            <div>
+            <div key={_id}>
               <div className='flex justify-center items-center gap-x-20 py-12 hover:shadow-lg hover:shadow-white transition-shadow duration-500' key={ _id }>
 
                 <div className='w-1/3'>
