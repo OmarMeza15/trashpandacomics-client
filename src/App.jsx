@@ -14,6 +14,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Reviews from "./pages/Reviews";
 import ShopPage from "./pages/ShopPage";
+import NewProduct from "./pages/NewProduct";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
 
 function App() {
   return (
@@ -69,6 +71,11 @@ function App() {
 
         {/* Reviews page */}
         <Route path="/reviews" element={<Reviews />} />
+        
+        {/* New Product page */}
+        <Route path="/new-product" element={<NewProduct />} />
+
+        <Route path="*" element={<NotFoundPage />} />
         
       </Routes>
     </div>
