@@ -36,6 +36,8 @@ class ProductService {
       .catch(console.log);
   };
 
+  // GET /shop/:id/details
+
 }
 
 // Create one instance of the service
