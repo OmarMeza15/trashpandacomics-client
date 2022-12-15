@@ -16,6 +16,7 @@ import Reviews from "./pages/Reviews";
 import ShopPage from "./pages/ShopPage";
 import NewProduct from "./pages/NewProduct";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
 
         {/* Shop page */}
         <Route path='/shop' element={<ShopPage />} />
+
+        {/* Product Details */}
+        <Route path='/shop/:id/details' element={<ProductDetails />} />
 
         {/* FAQ page */}
         <Route path="/faq" element={<FAQ />} />
