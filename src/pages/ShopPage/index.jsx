@@ -1,4 +1,3 @@
-import { Badge } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import SocialMediaLinks from '../../components/SocialMediaLinks'
@@ -23,7 +22,7 @@ const ShopPage = () => {
   return (
     <div>
       
-      <div className='flex flex-wrap justify-center items-center gap-x-20 gap-y-16 my-16 h-screen'>
+      <div className='flex flex-wrap justify-center items-center gap-x-20 gap-y-16 my-16 h-full'>
         {products.map(({ _id, title, price, imageUrl, discount }) => (
           <div key={_id} className='shadow-2xl transition-shadow duration-500 w-72'>
               <div className='h-52 mt-5 mx-5 flex justify-center'>
@@ -35,7 +34,7 @@ const ShopPage = () => {
               </div>
 
               <div className='py-5 pl-3 flex flex-col text-center'>
-                <Link to={`/shop/${_id}`}>
+                <Link to={`/shop/${_id}/details`}>
                   <p>{ title }</p>
                 </Link>
 
