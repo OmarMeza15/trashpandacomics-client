@@ -19,24 +19,27 @@ class ProductService {
     });
   }
 
-  // POST /reviews/review
+  // POST /product/new-product
   createProduct = async (requestBody) => {
     return this.api.post('/product/new-product', requestBody);
   }
 
-  // GET /reviews/review
+  // GET /product/shop
   getAllProducts = async () => {
     return this.api.get('/product/shop');
   }
 
-  // GET /reviews/review/upload
+  // GET /product/new-product/upload
   uploadImage = (file) => {
     return this.api.post('/product/new-product/upload', file)
       .then(res => res.data)
       .catch(console.log);
   };
 
-  // GET /shop/:id/details
+  // GET /product/shop/:id/details
+  getProductDetails = async (id) => {
+    return this.api.get(`/product/shop/${id}/details`);
+  }
 
 }
 
