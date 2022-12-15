@@ -3,6 +3,7 @@ import MakeReview from '../../components/MakeReview'
 import SocialMediaLinks from '../../components/SocialMediaLinks'
 import reviewService from '../../services/review.service'
 import { AuthContext } from '../../context/auth.context'
+import moment from 'moment'
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([])
@@ -37,7 +38,7 @@ const Reviews = () => {
 
                 <div className='w-1/3'>
                   <h2 className='text-xl'>{author?.name}</h2>
-                  <h3 className='font-light mb-5'>{ createdAt }</h3>
+                  <h3 className='font-light mb-5'>{ moment(createdAt).format('MMMM Do YYYY') }</h3>
                   <p>{ text }</p>
                 </div>
 
