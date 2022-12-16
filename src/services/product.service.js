@@ -46,8 +46,19 @@ class ProductService {
     return this.api.put(`/product/shop/${id}/details/edit`, requestBody)
   }
 
+  // Delete a product
   deleteOne = async (id) => {
     return this.api.delete(`/product/shop/${id}/details`)
+  }
+
+  // Add to the cart
+  addToCart = async (id, requestBody) => {
+    return this.api.post(`/product/shop/${id}/details`, requestBody)
+  }
+
+  // Get all the cart
+  getAllCart = async () => {
+    return this.api.get('/product/') 
   }
 
 }
