@@ -13,6 +13,11 @@ const Contact = () => {
 
     emailJsService
       .createEmail(requestBody)
+      .then(() => {
+        setEmail("")
+        setName("")
+        setQuestion("")
+      })
       .catch(console.log)
 
   }
