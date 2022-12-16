@@ -17,6 +17,7 @@ import ShopPage from "./pages/ShopPage";
 import NewProduct from "./pages/NewProduct";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage"
 import ProductDetails from "./pages/ProductDetails";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -63,6 +64,9 @@ function App() {
 
         {/* Product Details */}
         <Route path='/shop/:id/details' element={<ProductDetails />} />
+
+        {/* Edit the product */}
+        <Route path='/shop/:id/details/edit' element={<EditProduct />} />
 
         {/* FAQ page */}
         <Route path="/faq" element={<FAQ />} />
