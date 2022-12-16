@@ -32,6 +32,8 @@ const SlideOver = () => {
   const [cart, setCart] = useState([])
   const [details, setDetails] = useState({})
 
+  const {product} = cart
+
   const getCart = () => {
     productService
       .getAllCart()
@@ -43,7 +45,7 @@ const SlideOver = () => {
 
   const getAllDetails = () => {
     productService
-      .getProductDetails(id)
+      .getProductDetails(product)
       .then((response) => {
         setDetails(response.data)
       })
@@ -52,7 +54,7 @@ const SlideOver = () => {
 
   useEffect(() => {
     getCart()
-    getProducts()
+    getAllDetails()
   }, [])
 
   return (
