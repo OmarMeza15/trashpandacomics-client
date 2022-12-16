@@ -69,9 +69,11 @@ function HomePage() {
             </div>
 
             {/* Button to get in contact */}
-            <button className="bg-black border border-white text-white w-36 h-11 rounded-3xl font-light hover:bg-white hover:text-black mt-20 place-self-center transition ease-in-out duration-500">
-              Get in Touch!
-            </button>
+            <Link to='/contact'>
+              <button className="bg-black border border-white text-white w-36 h-11 rounded-3xl font-light hover:bg-white hover:text-black mt-20 place-self-center transition ease-in-out duration-500">
+                Get in Touch!
+              </button>
+            </Link>
           </div>
 
           {/*  */}
