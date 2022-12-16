@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import SocialMediaLinks from '../../components/SocialMediaLinks'
 import productService from '../../services/product.service'
-import { useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { AuthContext } from '../../context/auth.context'
 
 const ProductDetails = () => {
   const [details, setDetails] = useState({})
   const { id } = useParams()
   const { _id, imageUrl, title, price, info, description } = details
+
+  const { user, isLoggedIn } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const getAllDetails = () => {
     productService
@@ -17,10 +21,18 @@ const ProductDetails = () => {
       .catch(console.log)
   }
 
+  const deleteProduct = () => {
+    productService
+      .deleteOne(id)
+      .then(navigate("/shop"))
+      .catch(console.log)
+  }
+
   useEffect(() => {
     getAllDetails()
   }, [])
 
+  
 
   return (
     <div>
@@ -56,6 +68,19 @@ const ProductDetails = () => {
             <p className="mt-5">Description:</p>
             <p>{description}</p>
           </div>
+
+          {isLoggedIn && (
+            <div>
+            {user.roles === "Admin" && (
+              <div>
+                <Link to={`/shop/${_id}/details/edit`}>
+                  <button>edit</button>
+                </Link>
+                <button onClick={deleteProduct}>delete</button>
+              </div>
+            )}
+            </div>
+          )}
       </div>
 
       <SocialMediaLinks />
