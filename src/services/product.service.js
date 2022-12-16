@@ -41,6 +41,15 @@ class ProductService {
     return this.api.get(`/product/shop/${id}/details`);
   }
 
+  // PUT /product/shop/:id/details/edit
+  updateOne = async (id, requestBody) => {
+    return this.api.put(`/product/shop/${id}/details/edit`, requestBody)
+  }
+
+  deleteOne = async (id) => {
+    return this.api.delete(`/product/shop/${id}/details`)
+  }
+
 }
 
 // Create one instance of the service
